@@ -5,7 +5,19 @@
 </head>
 <body>
     <h2>XIRR Calculator</h2>
-    <form action="/calculate" method="post" enctype="multipart/form-data">
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+    
+<form action="/" method="post" enctype="multipart/form-data">
         Upload your transaction files:<br>
         <input type="file" name="files" multiple><br><br>
         Enter current portfolio value:<br>
